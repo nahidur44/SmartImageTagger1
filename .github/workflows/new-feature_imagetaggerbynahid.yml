@@ -21,6 +21,6 @@ jobs:
       # 3. Deploy to Azure App Service
       - run: |
           az webapp up \
-          --name YOUR_APP_NAME \
-          --resource-group YOUR_RESOURCE_GROUP \
+          --name ImageTaggerbyNahid \
+          --resource-group ImageTagger \
           --runtime "PYTHON|3.9"
