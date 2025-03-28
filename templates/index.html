@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Image Tagger</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 20px; }
+        .upload-box { border: 2px dashed #aaa; padding: 20px; margin: 20px auto; max-width: 500px; }
+        #preview { max-width: 100%; margin-top: 10px; }
+        .tag { 
+            display: inline-block; 
+            background: #0078d4; 
+            color: white; 
+            padding: 5px 10px; 
+            margin: 5px; 
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smart Image Tagger</h1>
+    <p>Upload any image, and AI will tell you what's in it!</p>
+    
+    <form method="post" enctype="multipart/form-data" class="upload-box">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">Analyze Image</button>
+    </form>
+    
+    {% if image_url %}
+        <img src="{{ image_url }}" id="preview">
+        <h3>AI Found These Tags:</h3>
+        <div>
+            {% for tag in tags %}
+                <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>
